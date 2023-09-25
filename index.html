@@ -8,8 +8,26 @@
     <title>Weather App</title>
 </head>
 <body>
-    
-    
+    <div class="container">
+        <h1>Weather App</h1>
+        <form>
+            <input type="text" id="city-input" placeholder="Enter City">
+            <input type="submit" value="Get Weather">
+        </form>
+        <div id="weather-data">
+            <div class="icon">
+                <img src="http://openweathermap.org/img/wn/01d.png" alt="Weather icon">
+            </div>
+            <div class="temperature">80°F</div>
+            <div class="description">Sunny</div>
+            <div class="details">
+                <div>Feels like: 85°F</div>
+                <div>Humidity: 10%</div>
+                <div>Wind Speed: 5 mph</div>
+            </div>
+        </div>
+    </div>
+
     <script src="app.js"></script>
 </body>
 </html>
