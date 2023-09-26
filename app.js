@@ -33,10 +33,6 @@ async function getWeatherData(cityValue){
             `Wind Speed: ${data.wind.speed}mph`
         ];
 
-        //const feelsLike = Math.random(data.main.feels_link);
-        //const humidity = data.main.humidity;
-        //const windSpeed = Math.round(data.wind.speed);
-
         weatherDataEl.querySelector('.icon').innerHTML = `<img src="http://openweathermap.org/img/wn/${icon}.png" alt="Weather icon">`;
         weatherDataEl.querySelector('.temperature').innerHTML = `${temperature}°F`;
         weatherDataEl.querySelector('.description').innerHTML = description;
