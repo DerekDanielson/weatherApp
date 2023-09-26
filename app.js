@@ -29,8 +29,8 @@ async function getWeatherData(cityValue){
 
         const details = [
             `Feels like: ${Math.round(data.main.feels_like)}`,
-            `Humidity: ${data.main.humidity}`,
-            `Wind Speed: ${data.wind.speed}`
+            `Humidity: ${data.main.humidity}%`,
+            `Wind Speed: ${data.wind.speed}mph`
         ];
 
         //const feelsLike = Math.random(data.main.feels_link);
@@ -40,8 +40,9 @@ async function getWeatherData(cityValue){
         console.log(data);
 
         weatherDataEl.querySelector('.icon').innerHTML = `<img src="http://openweathermap.org/img/wn/${icon}.png" alt="Weather icon">`;
-        weatherDataEl.querySelector('.temperature').innerHTML = temperature;
+        weatherDataEl.querySelector('.temperature').innerHTML = `${temperature}°F`;
         weatherDataEl.querySelector('.description').innerHTML = description;
+        weatherDataEl.querySelector('.details').innerHTML = details.map((detail)=> `<div>${detail}<div>`).join('');
 
     } catch (error) {
         
