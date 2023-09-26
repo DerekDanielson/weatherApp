@@ -12,6 +12,7 @@ formEl.addEventListener('submit', (e)=>{
     getWeatherData(cityValue);
 });
 
+//Retrieve data from API
 async function getWeatherData(cityValue){
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=${apiKey}&units=imperial`)
@@ -22,7 +23,26 @@ async function getWeatherData(cityValue){
 
         const data = await response.json();
 
+        const temperature = Math.round(data.main.temp);
+        const description = data.weather[0].description;
+        const icon = data.weather[0].icon;
+
+        const details = [
+            `Feels like: ${Math.round(data.main.feels_like)}`,
+            `Humidity: ${data.main.humidity}`,
+            `Wind Speed: ${data.wind.speed}`
+        ];
+
+        //const feelsLike = Math.random(data.main.feels_link);
+        //const humidity = data.main.humidity;
+        //const windSpeed = Math.round(data.wind.speed);
+
         console.log(data);
+
+        weatherDataEl.querySelector('.icon').innerHTML = `<img src="http://openweathermap.org/img/wn/${icon}.png" alt="Weather icon">`;
+        weatherDataEl.querySelector('.temperature').innerHTML = temperature;
+        weatherDataEl.querySelector('.description').innerHTML = description;
+
     } catch (error) {
         
     }
